@@ -1,0 +1,72 @@
+/* Add spacing above the buttons/nav */
+.admin-actions {
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+/* Make the table card full width, but max 95vw for large screens */
+.table-card {
+  margin: 0 auto 32px auto;
+  padding: 0 0 24px 0;
+  width: 80vw;
+  max-width: 1800px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(60,60,60,0.08);
+}
+
+/* Header row: title left, search right */
+.table-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 32px 8px 32px;
+}
+
+.table-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1976d2;
+  letter-spacing: 0.03em;
+}
+
+.search-field {
+  width: 260px;
+}
+
+.scrollable-table {
+  max-height: 520px;
+  overflow-x: auto;
+  padding: 0 32px 0 32px;
+}
+
+.custom-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+
+.custom-table th, .custom-table td {
+  padding: 14px 18px;
+  font-size: 1rem;
+}
+
+.custom-table th {
+  background: #f6f8fa;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 2px solid #e0e0e0;
+  text-align: left;
+}
+
+.custom-table td {
+  border-bottom: 1px solid #ececec;
+  color: #222;
+  background: #fff;
+}
+
+tr.hover-row:hover {
+  background: #e3f2fd !important;
+  transition: background 0.18s;
+  cursor: pointer;
+}

@@ -1,0 +1,45 @@
+.user-appointments {
+    padding: 20px;
+  }
+  
+  .no-data {
+    text-align: center;
+    padding: 40px 0;
+    color: #666;
+  }
+  
+  .no-data mat-icon {
+    font-size: 48px;
+    height: 48px;
+    width: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .appointment-card {
+    margin-bottom: 16px;
+  }
+  
+  .status-chip {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.85em;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+  
+  .status-chip.pending {
+    background-color: #fff8e1;
+    color: #f57f17;
+  }
+  
+  .status-chip.confirmed {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .status-chip.cancelled {
+    background-color: #ffebee;
+    color: #c62828;
+  }
+  

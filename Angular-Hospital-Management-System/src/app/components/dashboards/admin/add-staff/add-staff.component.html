@@ -1,0 +1,85 @@
+<h2 class="staff-dialog-title">
+    <mat-icon class="dialog-title-icon" color="primary">person_add</mat-icon>
+    <span>{{ title }}</span>
+  </h2>
+  <mat-divider></mat-divider>
+  
+  <mat-dialog-content class="dialog-content">
+    <form [formGroup]="form" class="staff-form" autocomplete="off">
+      <!-- Personal Information -->
+      <div class="form-section">
+        <div class="section-header">Personal Information</div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>First Name*</mat-label>
+            <input title="firstName" matInput formControlName="firstName" required>
+            <mat-error *ngIf="form.get('firstName')?.touched && form.get('firstName')?.invalid">
+              Enter First Name
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Middle Name</mat-label>
+            <input title="middleName" matInput formControlName="middleName">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name*</mat-label>
+            <input title="lastName" matInput formControlName="lastName" required>
+            <mat-error *ngIf="form.get('lastName')?.touched && form.get('lastName')?.invalid">
+              Enter Last Name
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Email*</mat-label>
+            <input title="email" matInput type="email" formControlName="email" required>
+            <mat-error *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+              Enter valid Email
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Password*</mat-label>
+            <input title="password" matInput type="password" formControlName="password" required>
+            <mat-error *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+              Enter Password
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Phone*</mat-label>
+            <input title="phone" matInput type="tel" formControlName="phone" required>
+            <mat-error *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid">
+              Enter valid Phone Number
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Gender*</mat-label>
+            <mat-select formControlName="gender" required>
+              <mat-option value="MALE">Male</mat-option>
+              <mat-option value="FEMALE">Female</mat-option>
+              <mat-option value="Other">Other</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('gender')?.touched && form.get('gender')?.invalid">
+              Select Gender
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <!-- Profile Picture -->
+      <div class="form-section">
+        <div class="section-header">Profile Picture</div>
+        <mat-form-field appearance="outline">
+          <mat-label>Photo URL</mat-label>
+          <input title="photoURL" matInput type="url" formControlName="photoURL">
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end" class="dialog-actions">
+    <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSubmit()">Submit</button>
+  </mat-dialog-actions>
+  

@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>Update Doctor Details</h2>
+<form [formGroup]="doctorForm" (ngSubmit)="onSave()">
+  <mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input title="firstName" matInput formControlName="firstName" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Middle Name</mat-label>
+        <input title="middleName" matInput formControlName="middleName" required>
+      </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input title="lastName" matInput formControlName="lastName" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input title="email" matInput formControlName="email" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Phone</mat-label>
+      <input title="phone" matInput formControlName="phone" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Specialization</mat-label>
+      <input title="specialization" matInput formControlName="specialization" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Experience (years)</mat-label>
+      <input title="experienceYears" matInput type="number" formControlName="experienceYears" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Qualifications</mat-label>
+      <input title="qualifications" matInput formControlName="qualifications" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Photo URL</mat-label>
+      <input title="photoURL" matInput formControlName="photoURL" required>
+
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="doctorForm.invalid || isLoading">
+      {{ isLoading ? 'Saving...' : 'Save' }}
+    </button>
+  </mat-dialog-actions>
+</form>

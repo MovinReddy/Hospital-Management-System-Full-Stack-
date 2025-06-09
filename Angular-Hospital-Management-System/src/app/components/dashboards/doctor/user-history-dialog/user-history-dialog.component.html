@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Patient History: {{ data.user.firstName }} {{ data.user.lastName }}</h2>
+
+<mat-dialog-content>
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+  
+  <div *ngIf="!isLoading && appointments.length === 0" class="no-data">
+    <mat-icon>history</mat-icon>
+    <p>No appointment history found</p>
+  </div>
+  
+  <div *ngIf="!isLoading && appointments.length > 0">
+    <div class="appt-history-list">
+      <mat-card *ngFor="let appointment of appointments" class="appt-history-card" (click)="openPrescriptionDetail(appointment)">
+        <div class="appt-header">
+          <span class="appt-date">
+            <mat-icon>event</mat-icon>
+            {{ appointment.dateOfAppointment | date:'mediumDate' }}
+          </span>
+          <span class="status-chip" [ngClass]="'status-' + appointment.appointmentStatus.toLowerCase()">
+            {{ appointment.appointmentStatus }}
+          </span>
+        </div>
+        <div class="appt-body">
+          <div *ngIf="appointment.prescription">
+            <mat-icon color="primary">medical_services</mat-icon>
+            <strong>Notes:</strong> {{ appointment.prescription.notes || 'No notes provided' }}
+          </div>
+          <div *ngIf="!appointment.prescription" class="no-presc">
+            <mat-icon color="warn">block</mat-icon>
+            No prescription
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Close</button>
+</mat-dialog-actions>

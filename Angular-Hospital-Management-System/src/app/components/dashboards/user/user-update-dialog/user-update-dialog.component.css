@@ -1,0 +1,40 @@
+:host ::ng-deep .mat-dialog-container {
+    border-radius: 18px;
+    padding: 0;
+    max-width: 440px;
+  }
+  
+  h2[mat-dialog-title] {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+  
+  mat-dialog-content {
+    padding: 18px 24px 0 24px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    :host ::ng-deep .mat-dialog-container {
+      max-width: 98vw;
+      min-width: 0;
+      padding: 0;
+    }
+    mat-dialog-content {
+      padding: 10px 6px 0 6px;
+    }
+  }
+  

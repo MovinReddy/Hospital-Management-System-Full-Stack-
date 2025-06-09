@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Prescription Details</h2>
+
+<mat-dialog-content>
+  <div class="appointment-info">
+    <p><strong>Date:</strong> {{ data.appointment.dateOfAppointment | date:'mediumDate' }}</p>
+    <p><strong>Time:</strong> {{ data.appointment.appointmentTime }}</p>
+    <p><strong>Status:</strong>
+      <span [ngClass]="'status-' + data.appointment.appointmentStatus.toLowerCase()">
+        {{ data.appointment.appointmentStatus }}
+      </span>
+    </p>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div *ngIf="data.appointment.prescription; else noPrescription" class="prescription-section">
+    <h3>Prescription</h3>
+    <div class="prescription-item">
+      <strong>Symptoms:</strong>
+      <p>{{ data.appointment.prescription.symptoms }}</p>
+    </div>
+    <div class="prescription-item">
+      <strong>Medicines:</strong>
+      <p>{{ data.appointment.prescription.medicines }}</p>
+    </div>
+    <div class="prescription-item">
+      <strong>Notes:</strong>
+      <p>{{ data.appointment.prescription.notes }}</p>
+    </div>
+  </div>
+
+  <ng-template #noPrescription>
+    <div class="no-prescription">
+      <mat-icon>info</mat-icon>
+      <p>No prescription has been added for this appointment.</p>
+    </div>
+  </ng-template>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Close</button>
+</mat-dialog-actions>

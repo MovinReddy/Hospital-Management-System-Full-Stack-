@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Appointment Actions</h2>
+<mat-dialog-content>
+  <div *ngIf="!showDatePicker" class="action-buttons">
+    <button mat-raised-button color="primary" (click)="performAction('approved')">Approve</button>
+    <button mat-raised-button color="warn" (click)="performAction('cancelled')">Cancel</button>
+    <button mat-raised-button (click)="performAction('postpone')">Postpone</button>
+  </div>
+
+  <div *ngIf="showDatePicker" class="postpone-form">
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" 
+             placeholder="Choose date" 
+             [formControl]="dateControl">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input title="time" matInput type="time" [formControl]="timeControl">
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-button (click)="showDatePicker = false">Back</button>
+      <button mat-raised-button color="primary" (click)="submitPostpone()">Confirm</button>
+    </div>
+  </div>
+</mat-dialog-content>

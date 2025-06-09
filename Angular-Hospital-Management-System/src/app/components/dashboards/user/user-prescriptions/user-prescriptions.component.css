@@ -1,0 +1,113 @@
+/* user-prescriptions.component.css */
+.user-prescriptions {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.no-data {
+  text-align: center;
+  padding: 4rem;
+  color: #212223;
+}
+
+.no-data mat-icon {
+  font-size: 4rem;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1.5rem;
+  color: #adb5bd;
+}
+
+.prescriptions-list {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.prescription-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px solid #e9ecef;
+}
+
+.prescription-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+mat-card-header {
+  background-color: #f1f3f5;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+mat-card-title {
+  font-size: 1.25rem;
+  color: #343655;
+  font-weight: 600;
+}
+
+mat-card-subtitle {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.prescription-details {
+  padding: 1.5rem;
+}
+
+.detail-item {
+  margin: 1rem 0;
+}
+
+.detail-item label {
+  font-weight: 500;
+  color: #4a4e69;
+  display: block;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.detail-item p {
+  color: #1304e5;
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+p {
+  color: black;
+}
+
+.prescription-card {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: 1px solid #f0f0f0;
+}
+.prescription-card:hover {
+  box-shadow: 0 4px 16px rgba(60,60,60,0.12);
+  transform: translateY(-2px) scale(1.01);
+  border-color: #1976d2;
+}
+mat-card-header {
+  background: #f6f8fa;
+  border-bottom: 1px solid #ececec;
+}
+mat-card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+mat-card-subtitle {
+  color: #6c757d;
+  font-size: 0.95rem;
+}

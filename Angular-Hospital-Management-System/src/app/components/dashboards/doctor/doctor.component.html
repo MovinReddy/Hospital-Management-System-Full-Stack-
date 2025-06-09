@@ -1,0 +1,77 @@
+<div class="doctor-container">
+  <!-- Auth Section -->
+  <app-doctor-auth 
+    *ngIf="!currentDoctor" 
+    (loginSuccess)="handleLoginSuccess($event)">
+  </app-doctor-auth>
+
+  <!-- Dashboard Section -->
+  <div *ngIf="currentDoctor" class="dashboard">
+    <div class="nav-container">
+      <div class="doctor-info">
+        <h2>Doctor Dashboard</h2>
+      </div>
+      
+      <!-- Profile badge -->
+      <div class="profile-badge">
+        <span class="profile-name">
+          Dr. {{ currentDoctor.firstName }} {{ currentDoctor.lastName }}
+        </span>
+        <span class="profile-img" (click)="openDoctorDetailsDialog()">
+          <img 
+            [src]="currentDoctor.photoURL || 'assets/images/default-doctor.png'" 
+            alt="Profile"
+            (error)="handleImageError($event)"
+          />
+        </span>
+        <button mat-button (click)="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="dashboard-content">
+      <div class="appointment-header">
+        <h2>Total appointments today: {{ appointmentCount }}</h2>
+      </div>
+      
+      <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+      
+      <div *ngIf="!isLoading && todayAppointments.length === 0" class="no-appointments">
+        <mat-icon>event_busy</mat-icon>
+        <p>No appointments scheduled for today</p>
+      </div>
+      
+      <div class="appointment-list" *ngIf="!isLoading && todayAppointments.length > 0">
+        <mat-card *ngFor="let appointment of todayAppointments" class="appointment-card">
+          <mat-card-header>
+            <mat-card-title (click)="openUserHistoryDialog(appointment.user, $event)">
+              {{ appointment.user?.firstName }} {{ appointment.user?.lastName }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              <div class="appointment-date">
+                <mat-icon>event</mat-icon>
+                {{ appointment.dateOfAppointment | date:'mediumDate' }}
+              </div>
+              <span class="status-chip" [ngClass]="'status-' + (appointment.appointmentStatus || '').toLowerCase()">
+                {{ appointment.appointmentStatus }}
+              </span>
+            </mat-card-subtitle>
+          </mat-card-header>
+          
+          <mat-card-content>
+            <p>
+              <mat-icon>medical_services</mat-icon>
+              Prescription: {{ appointment.prescription ? 'Added' : 'Not added' }}
+            </p>
+          </mat-card-content>
+          
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="openPrescriptionDialog(appointment)">
+              <mat-icon>edit</mat-icon>
+              {{ appointment.prescription ? 'Update Prescription' : 'Add Prescription' }}
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

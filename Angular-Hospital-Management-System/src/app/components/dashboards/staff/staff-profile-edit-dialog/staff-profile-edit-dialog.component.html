@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Edit Profile</h2>
+<form [formGroup]="profileForm">
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input title="firstName" matInput formControlName="firstName">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Middle Name</mat-label>
+        <input title="middleName" matInput formControlName="middleName">
+      </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input title="lastName" matInput formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input title="email" matInput formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input title="phone" matInput formControlName="phone">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Photo URL</mat-label>
+      <input title="photoURL" matInput formControlName="photoURL">
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="cancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="button" (click)="save()" [disabled]="profileForm.invalid || isLoading">
+      {{ isLoading ? 'Saving...' : 'Save' }}
+    </button>
+  </mat-dialog-actions>
+</form>

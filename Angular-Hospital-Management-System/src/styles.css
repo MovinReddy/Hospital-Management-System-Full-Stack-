@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.status-pending { color: #ff9800; font-weight: 500; }
+.status-approved { color: #4caf50; font-weight: 500; }
+.status-cancelled { color: #f44336; font-weight: 500; }

@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>Update Profile</h2>
+<form [formGroup]="userForm" (ngSubmit)="onSave()">
+  <mat-dialog-content>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input title="firstName" matInput formControlName="firstName" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Middle Name</mat-label>
+        <input title="middleName" matInput formControlName="middleName">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input title="lastName" matInput formControlName="lastName" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input title="email" matInput formControlName="email" type="email" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input title="phone" matInput formControlName="phone" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="MALE">Male</mat-option>
+          <mat-option value="FEMALE">Female</mat-option>
+          <mat-option value="OTHER">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Date of Birth</mat-label>
+        <input title="datepicker" matInput [matDatepicker]="picker" formControlName="dateOfBirth" [max]="maxDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Profile Photo URL</mat-label>
+        <input title="photoURL" matInput formControlName="photoURL">
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid || isLoading">
+      {{ isLoading ? 'Saving...' : 'Save Changes' }}
+    </button>
+  </mat-dialog-actions>
+</form>

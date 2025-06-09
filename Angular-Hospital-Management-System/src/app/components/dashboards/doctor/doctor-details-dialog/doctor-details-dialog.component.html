@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Doctor Details</h2>
+<mat-dialog-content>
+  <div class="doctor-profile">
+    <img [src]="data.doctor.photoURL || 'assets/images/default-doctor.png'" alt="Doctor Photo" class="doc-img"/>
+    <div>
+      <div><b>Name:</b> Dr. {{ data.doctor.firstName }} {{ data.doctor.lastName }}</div>
+      <div><b>Email:</b> {{ data.doctor.email }}</div>
+      <div><b>Phone:</b> {{ data.doctor.phone }}</div>
+      <div><b>Specialization:</b> {{ data.doctor.specialization }}</div>
+      <div><b>Experience:</b> {{ data.doctor.experienceYears }} years</div>
+      <div><b>Qualifications:</b> {{ data.doctor.qualifications }}</div>
+      <div><b>Gender:</b> {{ data.doctor.gender }}</div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Close</button>
+  <button mat-raised-button color="primary" (click)="openUpdateDialog()">Update Details</button>
+</mat-dialog-actions>

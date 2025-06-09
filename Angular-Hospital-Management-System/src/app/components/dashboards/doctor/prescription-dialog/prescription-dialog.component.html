@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>
+  {{ data.isUpdate ? 'Update Prescription' : 'Add Prescription' }}
+</h2>
+
+<div mat-dialog-content>
+  <div class="appointment-info">
+    <p><strong>Patient:</strong> {{ data.appointment.user?.firstName }} {{ data.appointment.user?.lastName }}</p>
+    <p><strong>Date:</strong> {{ data.appointment.dateOfAppointment | date }}</p>
+    <p><strong>Time:</strong> {{ data.appointment.appointmentTime }}</p>
+    <p><strong>Status:</strong> 
+      <span [ngClass]="'status-' + data.appointment.appointmentStatus.toLowerCase()">
+        {{ data.appointment.appointmentStatus }}
+      </span>
+    </p>
+  </div>
+
+  <form>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Symptoms*</mat-label>
+      <textarea title="symptoms" matInput [(ngModel)]="prescription.symptoms" name="symptoms" required rows="3"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Medicines*</mat-label>
+      <textarea title="medicines" matInput [(ngModel)]="prescription.medicines" name="medicines" required rows="3"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Additional Notes</mat-label>
+      <textarea title="notes" matInput [(ngModel)]="prescription.notes" name="notes" rows="3"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="dialogRef.close()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="savePrescription()" [disabled]="isLoading">
+    {{ isLoading ? 'Saving...' : (data.isUpdate ? 'Update' : 'Save') }}
+  </button>
+</div>

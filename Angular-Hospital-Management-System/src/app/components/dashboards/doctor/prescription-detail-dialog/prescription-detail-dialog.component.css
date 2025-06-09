@@ -1,0 +1,56 @@
+.appointment-info {
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .prescription-section {
+    margin-top: 20px;
+  }
+  
+  .prescription-item {
+    margin-bottom: 15px;
+  }
+  
+  .prescription-item p {
+    margin-top: 5px;
+    white-space: pre-line;
+  }
+  
+  .no-prescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #666;
+    margin-top: 20px;
+  }
+  
+  .no-prescription mat-icon {
+    font-size: 48px;
+    height: 48px;
+    width: 48px;
+    margin-bottom: 10px;
+    color: #f44336;
+  }
+  
+  .status-approved, .status-confirmed {
+    color: green;
+    font-weight: 500;
+  }
+  
+  .status-pending {
+    color: orange;
+    font-weight: 500;
+  }
+  
+  .status-cancelled {
+    color: red;
+    font-weight: 500;
+  }
+  
+  mat-divider {
+    margin: 15px 0;
+  }
+  

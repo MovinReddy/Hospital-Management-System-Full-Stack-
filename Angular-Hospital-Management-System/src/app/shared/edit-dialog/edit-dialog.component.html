@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Edit {{ data.role | titlecase }}</h2>
+<mat-dialog-content [formGroup]="editForm">
+  <form (ngSubmit)="save()" autocomplete="off">
+    <div *ngFor="let field of fields" class="form-field">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ field | titlecase }}</mat-label>
+        <input title="field" matInput [formControlName]="field" [type]="field === 'password' ? 'password' : 'text'" />
+        <mat-error *ngIf="editForm.get(field)?.hasError('required')">
+          {{ field | titlecase }} is required
+        </mat-error>
+        <mat-error *ngIf="editForm.get(field)?.hasError('email')">
+          Please enter a valid email
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

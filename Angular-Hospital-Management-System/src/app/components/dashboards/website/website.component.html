@@ -1,0 +1,51 @@
+<div class="hero">
+    <h1>Welcome To MediTrack Hub</h1>
+  </div>
+
+  
+  <section id="about" class="section">
+    <h2>About Meditrack Hub</h2>
+    <p>
+      Our Hospital Management System is a modern web-based solution developed to streamline and automate the core functions of hospitals and healthcare institutions. It provides a centralized platform for managing various administrative, clinical, and operational processes, enhancing the overall efficiency and accuracy of hospital workflows.
+    </p>
+    <p>
+      The application is built using a robust backend powered by Spring Boot and MySQL, coupled with a dynamic and responsive frontend developed in Angular. Designed with scalability, security, and usability in mind, the system supports multiple user roles with tailored access, enabling smooth interaction between administrators, doctors, staff, and patients.
+    </p>
+    <p>
+      By digitizing traditional processes, the system minimizes paperwork, improves data accessibility, and ensures better coordination among departments. It is an ideal solution for healthcare institutions looking to embrace digital transformation and deliver higher standards of care.
+    </p>
+  </section>
+  
+  
+  <section id="services" class="section">
+    <h2>Services</h2>
+    <ul>
+      <li>🔐 Secure Login & Registration with role-based access</li>
+      <li>👨‍⚕️ Doctor Panel: View appointments and patient information</li>
+      <li>👩‍💼 Staff Panel: Manage and accept patient appointments</li>
+      <li>🧑‍💻 Admin Dashboard: Full control over hospital users and schedules</li>
+      <li>📅 User Dashboard: Book, manage, and track appointments</li>
+      <li>📲 Responsive UI: Clean, accessible, and mobile-friendly interface</li>
+    </ul>
+  </section>
+  
+  <section id="team" class="section">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="card" *ngFor="let member of team">
+        <div class="card-img-container">
+          <img [src]="member.image" alt="Team Member">
+        </div>
+        <div class="card-details">
+          <h4>{{ member.name }}</h4>
+          <p>{{ member.college }}</p>
+          <p>{{ member.role }}</p>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  
+  <footer>
+    <p>© All rights Reserved 2025</p>
+  </footer>

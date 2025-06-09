@@ -1,0 +1,74 @@
+<div class="auth-form">
+    <div class="toggle-buttons">
+      <button mat-button [color]="isLoginMode ? 'primary' : ''" (click)="isLoginMode = true">Login</button>
+      <button mat-button [color]="!isLoginMode ? 'primary' : ''" (click)="isLoginMode = false">Register</button>
+    </div>
+  
+    <h2>{{ isLoginMode ? 'Login' : 'Register' }}</h2>
+  
+    <form (ngSubmit)="onSubmit()" #authForm="ngForm" autocomplete="off">
+  
+      <!-- Registration Fields -->
+      <div *ngIf="!isLoginMode">
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input title="firstName" matInput required [(ngModel)]="userData.firstName" name="firstName" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Middle Name</mat-label>
+          <input title="middleNamex" matInput [(ngModel)]="userData.middleName" name="middleName" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input title="lastName" matInput required [(ngModel)]="userData.lastName" name="lastName" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Phone</mat-label>
+          <input title="phone" matInput required [(ngModel)]="userData.phone" name="phone" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Date of Birth</mat-label>
+          <input title="dateOfBirth" matInput type="date" required [(ngModel)]="userData.dateOfBirth" name="dateOfBirth" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Gender</mat-label>
+          <mat-select required [(ngModel)]="userData.gender" name="gender">
+            <mat-option value="MALE">Male</mat-option>
+            <mat-option value="FEMALE">Female</mat-option>
+            <mat-option value="Other">Other</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Photo URL</mat-label>
+          <input title="photoURL" matInput [(ngModel)]="userData.photoURL" name="photoURL" />
+        </mat-form-field>
+      </div>
+  
+      <!-- Email and Password (both modes) -->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input title="email" matInput required [(ngModel)]="userData.email" name="email" type="email" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input title="password" matInput required [(ngModel)]="userData.password" name="password" type="password" />
+      </mat-form-field>
+  
+      <!-- Remember Me (Login only) -->
+      <div *ngIf="isLoginMode" class="remember-me">
+        <mat-checkbox [(ngModel)]="rememberMe" name="rememberMe">Remember Me</mat-checkbox>
+      </div>
+  
+      <button mat-raised-button color="primary" type="submit">
+        {{ isLoginMode ? 'Login' : 'Register' }}
+      </button>
+    </form>
+  </div>
+  

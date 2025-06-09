@@ -1,0 +1,59 @@
+<div class="user-container">
+  <!-- Auth Section -->
+  <app-user-auth 
+    *ngIf="!currentUser" 
+    (loginSuccess)="handleLoginSuccess($event)">
+  </app-user-auth>
+
+  <div class="user-profile-bar" *ngIf="currentUser">
+    <div class="profile-info">
+      <span class="profile-name">
+        {{ currentUser.firstName }} 
+        <ng-container *ngIf="currentUser.middleName"> {{ currentUser.middleName }} </ng-container>
+        {{ currentUser.lastName }}
+      </span>
+    </div>
+    <span class="profile-img" (click)="openUserProfileDialog()">
+      <img 
+        [src]="currentUser.photoURL || 'images/profile.png'"
+        alt="Profile"
+        (error)="handleImageError($event)"
+      />
+    </span>
+  </div>
+  
+  <!-- Dashboard Section -->
+  <div *ngIf="currentUser" class="dashboard">
+    <div class="dashboard-header">
+      <button mat-button 
+              [class.active]="selectedTab === 'doctors'" 
+              (click)="selectTab('doctors')">Show Doctors</button>
+      <button mat-button 
+              [class.active]="selectedTab === 'appointments'" 
+              (click)="selectTab('appointments')">Show Appointments</button>
+      <button mat-button 
+              [class.active]="selectedTab === 'prescriptions'" 
+              (click)="selectTab('prescriptions')">Show Prescriptions</button>
+      <button mat-button (click)="logout()">Logout</button>
+    </div>
+
+    <div class="dashboard-content">
+      <app-book-appointment 
+        *ngIf="selectedTab === 'doctors'"
+        [userId]="currentUser?.userId">
+      </app-book-appointment>
+
+      <app-user-appointments 
+        *ngIf="selectedTab === 'appointments'"
+        [userId]="currentUser?.userId"
+        #userAppointments>
+      </app-user-appointments>
+
+      <app-user-prescriptions 
+        *ngIf="selectedTab === 'prescriptions'"
+        [userId]="currentUser?.userId"
+        #userPrescriptions>
+      </app-user-prescriptions>
+    </div>
+  </div>
+</div>

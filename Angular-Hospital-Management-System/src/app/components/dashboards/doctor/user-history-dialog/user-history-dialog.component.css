@@ -1,0 +1,156 @@
+.appt-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .appt-history-card {
+    padding: 12px 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+  
+  .appt-history-card:hover {
+    box-shadow: 0 4px 12px rgba(25,118,210,0.15);
+    background: #f5faff;
+  }
+  
+  .appt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .appt-date {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .status-chip {
+    padding: 2px 12px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  
+  .status-approved, .status-confirmed {
+    background: #e8f5e9;
+    color: #388e3c;
+  }
+  
+  .status-pending {
+    background: #fff8e1;
+    color: #fbc02d;
+  }
+  
+  .status-cancelled {
+    background: #ffebee;
+    color: #c62828;
+  }
+  
+  .appt-body {
+    margin-top: 8px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .no-presc {
+    color: #bdbdbd;
+    font-style: italic;
+  }
+  
+  .no-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    color: #666;
+  }
+  
+  .no-data mat-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    color: #1976d2;
+  }
+  
+  .appt-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .appt-history-card {
+    padding: 12px 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+  
+  .appt-history-card:hover {
+    box-shadow: 0 4px 12px rgba(25,118,210,0.15);
+    background: #f5faff;
+  }
+  
+  .appt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .appointment-date {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .status-chip {
+    padding: 2px 12px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  
+  .status-approved, .status-confirmed {
+    background: #e8f5e9;
+    color: #388e3c;
+  }
+  
+  .status-pending {
+    background: #fff8e1;
+    color: #fbc02d;
+  }
+  
+  .status-cancelled {
+    background: #ffebee;
+    color: #c62828;
+  }
+  
+  .appt-body {
+    margin-top: 8px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .no-presc {
+    color: #bdbdbd;
+    font-style: italic;
+  }
+  

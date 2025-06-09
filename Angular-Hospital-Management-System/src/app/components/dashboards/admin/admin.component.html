@@ -1,0 +1,38 @@
+<div class="admin-actions">
+  <button mat-raised-button color="primary" (click)="addDoctor()">Add Doctor</button>
+  <button mat-raised-button color="primary" (click)="addStaff()">Add Staff</button>
+  <button mat-raised-button (click)="fetchAndSetView('doctor')">Get All Doctors</button>
+  <button mat-raised-button (click)="fetchAndSetView('users')">Get All Users</button>
+  <button mat-raised-button (click)="fetchAndSetView('receptionist')">Get All Staff</button>
+  <!--
+    <button mat-stroked-button color="primary" (click)="openSearchDialog('doctor')">Search Doctor</button>
+    <button mat-stroked-button color="accent" (click)="openSearchDialog('user')">Search User</button>
+    <button mat-stroked-button color="warn" (click)="openSearchDialog('receptionist')">Search Staff</button>
+    -->
+</div>
+
+<app-reusable-table
+  *ngIf="viewMode === 'doctor'"
+  [showActions]="true"
+  [tableTitle]="'Doctors Table'"
+  [tableData]="doctors"
+  [displayedColumns]="doctorTableColumns"
+  (delete)="confirmDelete('doctor', $event)">
+</app-reusable-table>
+
+<app-reusable-table
+  *ngIf="viewMode === 'users'"
+  [tableTitle]="'Users Table'"
+  [showActions]="true"
+  [tableData]="users"
+  [displayedColumns]="usersTableColumns">
+</app-reusable-table>
+
+<app-reusable-table
+  *ngIf="viewMode === 'receptionist'"
+  [tableTitle]="'Staff Table'"
+  [showActions]="true"
+  [tableData]="receptionist"
+  [displayedColumns]="staffTableColumns"
+  (delete)="confirmDelete('staff', $event)">
+</app-reusable-table>

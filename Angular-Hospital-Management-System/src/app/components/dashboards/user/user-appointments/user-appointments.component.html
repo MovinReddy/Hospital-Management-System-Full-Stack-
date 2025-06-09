@@ -1,0 +1,31 @@
+<div class="user-appointments">
+    <h2>Your Appointments</h2>
+  
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+  
+    <div *ngIf="!isLoading && appointments.length === 0" class="no-data">
+      <mat-icon>calendar_today</mat-icon>
+      <p>No appointments booked yet</p>
+    </div>
+  
+    <div class="appointments-list">
+      <mat-card *ngFor="let appt of appointments" class="appointment-card">
+        <mat-card-header>
+          <mat-card-title>
+            Appointment with Dr. {{ appt.doctor?.firstName }} {{ appt.doctor?.lastName }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            {{ appt.dateOfAppointment | date:'mediumDate' }} at {{ appt.appointmentTime }}
+          </mat-card-subtitle>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <div class="status-chip" [ngClass]="appt.appointmentStatus.toLowerCase()">
+            {{ appt.appointmentStatus }}
+          </div>
+          <p *ngIf="appt.notes"><strong>Notes:</strong> {{ appt.notes }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

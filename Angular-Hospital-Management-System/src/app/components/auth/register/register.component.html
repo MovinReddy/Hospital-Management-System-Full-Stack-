@@ -1,0 +1,51 @@
+<div class="wrapper">
+    <mat-card>
+      <h2 >User Registration</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>firstName</mat-label>
+          <input title="firstname" matInput formControlName="firstName" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>middleName</mat-label>
+            <input title="middlename" matInput formControlName="middleName" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Last Name</mat-label>
+            <input title="lastname" matInput formControlName="lastName" required>
+          </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Email</mat-label>
+          <input title="email" matInput formControlName="email" type="email" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Password</mat-label>
+          <input title="password" matInput formControlName="password" type="password" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Confirm Password</mat-label>
+          <input title="confirmpassword" matInput formControlName="confirmPassword" type="password" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="role">
+            <mat-option value="USER">User</mat-option>
+            <mat-option value="DOCTOR">Doctor</mat-option>
+            <mat-option value="STAFF">Receptionist</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" class="w-100" type="submit">Register</button>
+        <div>
+          <a routerLink="/login">Already registered? Login</a>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  

@@ -1,0 +1,46 @@
+<!-- user-prescriptions.component.html -->
+<div class="user-prescriptions">
+  <h2>Your Prescriptions</h2>
+
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+
+  <div *ngIf="!isLoading && prescriptions.length === 0" class="no-data">
+    <mat-icon>local_pharmacy</mat-icon>
+    <p>No prescriptions available</p>
+  </div>
+
+  <div class="prescriptions-list">
+    <mat-card *ngFor="let presc of prescriptions" class="prescription-card">
+      <mat-card-header>
+        <mat-card-title>
+          Prescription from Dr. {{ presc.doctor?.firstName }} {{ presc.doctor?.lastName }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{ presc.appointment?.dateOfAppointment | date:'mediumDate' }}
+          <span *ngIf="presc.appointment?.appointmentTime">
+            at {{ presc.appointment?.appointmentTime }}
+          </span>
+        </mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div class="prescription-details">
+          <div class="detail-item">
+            <label>Symptoms:</label>
+            <p>{{ presc.symptoms }}</p>
+          </div>
+
+          <div class="detail-item">
+            <label>Medicines:</label>
+            <p>{{ presc.medicines }}</p>
+          </div>
+
+          <div class="detail-item">
+            <label>Notes:</label>
+            <p>{{ presc.notes }}</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

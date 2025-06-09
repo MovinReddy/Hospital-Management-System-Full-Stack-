@@ -1,0 +1,64 @@
+<app-staff-auth *ngIf="!currentStaff" (loginSuccess)="handleLoginSuccess($event)"></app-staff-auth>
+<div *ngIf="currentStaff" class="staff-dashboard">
+
+
+<div class="staff-dashboard">
+    <!-- Header -->
+    <div class="dashboard-header">
+      <h2>Staff Dashboard</h2>
+      <div class="profile-section">
+        <span class="staff-name">{{ currentStaff?.firstName }} {{ currentStaff?.lastName }}</span>
+        <img 
+          [src]="currentStaff?.photoURL || 'images/profile.png'" 
+          class="profile-pic"
+          alt="Profile"
+          (click)="openProfileDialog()"
+        />
+        <button mat-button (click)="logout()">Logout</button>
+      </div>
+    </div>
+  
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <mat-form-field appearance="fill">
+        <mat-label>Date</mat-label>
+        <input title="search" matInput [matDatepicker]="picker" [(ngModel)]="searchDate" name="searchDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Doctor ID</mat-label>
+        <input title="idsearch" matInput type="number" [(ngModel)]="doctorIdSearch" name="doctorIdSearch">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="searchAppointments()">
+        <mat-icon>search</mat-icon> Search
+      </button>
+      <button mat-button (click)="resetSearch()">Reset</button>
+    </div>
+  
+    <!-- Appointments List -->
+    <div class="appointments-list">
+      <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+      <mat-card *ngFor="let appt of appointments" class="appointment-card" (click)="openAppointmentActions(appt)">
+        <mat-card-header>
+          <mat-card-title>{{ appt.user?.firstName }} {{ appt.user?.lastName }}</mat-card-title>
+          <mat-card-subtitle>
+            Dr. {{ appt.doctor?.firstName }} {{ appt.doctor?.lastName }} - {{ appt.doctor?.specialization }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div>Date: {{ appt.dateOfAppointment | date }}</div>
+          <div>Time: {{ appt.appointmentTime }}</div>
+          <div [ngClass]="'status-' + (appt.appointmentStatus || '').toLowerCase()">
+            {{ appt.appointmentStatus }}
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <div *ngIf="!isLoading && appointments.length === 0" class="no-appointments">
+        <mat-icon>event_busy</mat-icon>
+        <p>No appointments found</p>
+      </div>
+    </div>
+  </div>
+  
+  </div>

@@ -1,0 +1,74 @@
+.dashboard {
+  padding: 20px;
+}
+
+.dashboard-header {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.tab-content {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.doctor-card, .appointment-card, .prescription-card {
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.user-profile-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  background: #f5f5f5;
+  padding: 12px 24px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 12px;
+}
+
+.profile-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.profile-name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+  margin-right: 24px;
+  white-space: nowrap;
+}
+
+.profile-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #1976d2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edit-profile-btn {
+  margin-right: 18px;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

@@ -1,0 +1,42 @@
+<mat-dialog-content>
+  <mat-form-field appearance="outline" class="w-full mb-4">
+    <mat-label>Search By</mat-label>
+    <mat-select [(value)]="searchBy">
+      <mat-option *ngFor="let option of getSearchOptions()" [value]="option.value">
+        {{ option.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Add ngSwitch directive on the parent element -->
+  <div [ngSwitch]="searchBy">
+    <mat-form-field *ngSwitchCase="'specialization'" appearance="outline" class="w-full mb-4">
+      <mat-label>Select Specialization</mat-label>
+      <mat-select [(value)]="searchValue">
+        <mat-option *ngFor="let spec of specializations" [value]="spec">
+          {{ spec }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngSwitchCase="'id'" appearance="outline" class="w-full mb-4">
+      <mat-label>Enter {{ searchBy | titlecase }}</mat-label>
+      <input title="search" matInput type="number" [(ngModel)]="searchValue" />
+    </mat-form-field>
+
+    <mat-form-field *ngSwitchCase="'name'" appearance="outline" class="w-full mb-4">
+      <mat-label>Enter {{ searchBy | titlecase }}</mat-label>
+      <input title="search" matInput [(ngModel)]="searchValue" />
+    </mat-form-field>
+
+    <mat-form-field *ngSwitchCase="'email'" appearance="outline" class="w-full mb-4">
+      <mat-label>Enter {{ searchBy | titlecase }}</mat-label>
+      <input title="search" matInput [(ngModel)]="searchValue" />
+    </mat-form-field>
+
+    <mat-form-field *ngSwitchDefault appearance="outline" class="w-full mb-4">
+      <mat-label>Enter {{ searchBy | titlecase }}</mat-label>
+      <input title="search" matInput [(ngModel)]="searchValue" />
+    </mat-form-field>
+  </div> <!-- End of ngSwitch wrapper -->
+</mat-dialog-content>

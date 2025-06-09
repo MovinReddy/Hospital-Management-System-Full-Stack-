@@ -1,0 +1,31 @@
+<div class="book-appointment">
+    <h2>Available Doctors</h2>
+    
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+  
+    <div class="doctor-grid">
+      <mat-card 
+        *ngFor="let doctor of doctors"
+        class="doctor-card"
+        (click)="selectDoctor(doctor)"
+      >
+        <img 
+          mat-card-image 
+          [src]="doctor.photoURL || defaultDoctorImage" 
+          (error)="handleImageError($event)"
+          loading="lazy"
+          alt="Doctor photo"
+          width="100%"
+          height="250px"
+        >
+        <mat-card-content>
+          <h3>Dr. {{ doctor.firstName }} {{ doctor.lastName }}</h3>
+          <p class="specialization">{{ doctor.specialization }}</p>
+          <p *ngIf="doctor.experienceYears" class="experience">
+            {{ doctor.experienceYears }} years experience
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
